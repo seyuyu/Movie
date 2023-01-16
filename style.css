@@ -1,0 +1,251 @@
+*{
+    margin:0;
+}
+
+html,body{
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+.navbar-container{
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    /* 字体颜色 */
+    color: white; 
+    font-family: 'Sen', sans-serif;
+}
+.logo-container{
+    flex: 1;
+}
+.logo{
+    
+    font-size: 30px;
+    color: #4dbf00;
+    
+}
+
+.menu-container {
+    flex: 6;
+}
+.menu-list{
+    display: flex;
+    list-style: none;
+}
+
+.menu-list-item{
+    margin-left: 30px;
+}
+
+.menu-list-item.active{
+    font-weight: bold;
+}
+
+.profile-container {
+    flex: 2;
+    display: flex;
+    /* 这个地方为啥 align-items 就能居中，有点不明白 */
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+.profile-text-container{
+    margin: 0 20px;
+}
+.toggle{
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.toggle-icon{
+    color: goldenrod
+}
+
+.toggle-ball{
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.profile-picture{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar{
+    width:50px;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    align-items: center;
+}
+
+.left-menu-icon{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.container{
+    background-color: #151515;
+    /* height: calc(100vh - 50px); */
+    /* 这个地方是因为下面的movie-list-container设置padding不起作用然后改成了下面的。
+    这个地方是个重点，后面查一下 */
+    min-height: calc(100vh - 50px);
+    color: white;
+}
+
+.content-container{
+    margin-left: 50px;
+}
+
+.featured-content{
+    height: 50vh;
+    padding: 50px;
+}
+
+.featured-title{
+    width: 200px;
+}
+
+.featured-desc{
+    width: 500px;
+    color: lightgray;
+    margin: 30px 0;
+}
+
+.featured-button{
+    background-color: #4dbf00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /* 这个时候，发现按钮边框会有黑色的线，可以用下面的清除。 */
+    border: none;
+    outline: none;
+    font-weight: bolder;
+}
+
+.movie-list-container{
+    padding: 40px;
+}
+
+.movie-list-wrapper{
+    position: relative;
+    
+}
+
+.movie-list-title{
+    padding-bottom: 30px;
+}
+
+
+.movie-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+
+.movie-list-item{
+    margin-right: 15px;
+    position: relative;
+    
+
+}
+
+.movie-list-item:hover .movie-list-item-img{
+    /* 这个地方的 hover 和 transform得查一下是啥意思 */
+    transform: scale(1.2);
+    margin: 0 30px;
+    /* 噢 这种点击图片，图片会变成暗一点的 是用了 opacity 这个属性 */
+    opacity: 0.5;   
+}
+
+.movie-list-item:hover .movie-list-item-title{
+    /* 这个 hover 类似于js重点事件，当鼠标悬浮在这个上面就会触发这个事件 */
+    opacity: 0.5;
+}
+
+.movie-list-item:hover .movie-list-item-desc {
+    opacity: 0.8;
+}
+.movie-list-item:hover .movie-list-item-button {
+    opacity: 1;
+}
+.movie-list-item-img{
+    /* transition 得查  属于css animation里面的东西*/
+  transition:all 1s ease-in-out;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.movie-list-item-title{
+position: absolute;
+background-color: #333;
+padding: 0px 10px;
+font-size: 32px;
+font-weight: bold;
+top: 10%;
+left: 50px;
+opacity: 0;
+transition: 1s all ease-in-out;
+}
+
+.movie-list-item-desc{
+    background-color: #333;
+    color: lightgray;
+    padding: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    width: 230px;
+    opacity: 0;
+}
+
+.movie-list-item-button{
+    background-color: #4dbf00;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    /* cursor 是啥？ */
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    opacity: 0;
+}
+
+.arrow{
+    font-size: 40px;
+    position: absolute;
+    top: 130px;
+    /* left: 1880px; */
+    right: 0;
+    color: lightgray;
+}
